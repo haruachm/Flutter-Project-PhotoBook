@@ -4,11 +4,11 @@
 
 
 </br>
----
+
 
 ## ****StatefulWidget 생성 후 Page View 사용해보기****
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 ### **Page View 이미지 map() 사용**
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 타이머를 사용하기 위해서는 **'dart:async' 패키지**를 임포트해야 한다.
 
-```
+```dart
 import 'dart:async';
 ```
 
@@ -82,7 +82,7 @@ import 'dart:async';
 - timer()은 백그라운드에서 멈추는 명령이 있을 때까지 계속적으로 실행이 된다. 그렇기 때문에 멈추는 명령어를 작성하지 않으면 메모리를 잡아먹을 수 있다.
 - **timer = Timer.periodic(Duration(seconds: 1), (timer){}** 로 몇 초동안 해당 명령어를 반복할지 설정한다.
 
-```
+```dart
 class _HomeScreenState extends State<HomeScreen> {
   Timer? timer;
 
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
 - HomeScreen이라는 위젯이 완전 종료가 될 때 dispose()가 호출되는데, 그때 함께 timer()도 중지되도록 설정한다.
 - timer를 중지하려면 .cancel()을 사용하는데, 여기서 if문으로 null 체크를 해줬음에도 timer는 인식하지 못해 **! (느낌표)를 사용해 한번 더 null 체크**를 해줘야 한다.
 
-```
+```dart
   @override
   void dispose() {
     if (timer != null) {
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 WebView를 사용했을 때는 컨트롤러(Controller) 웹뷰에서 생성을 해줬으나 PageView에서는 직접 컨트롤러를 생성하고 넣어줘야 한다.
 
-```
+```dart
 class _HomeScreenState extends State<HomeScreen> {
   Timer? timer;
   PageController controller = PageController(
@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 페이지를 조종할 때는 현재 페이지를 가져와야 한다.
 
-```
+```dart
   @override
   void initState() {
 // TODO: implement initStatesuper.initState();
@@ -189,13 +189,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
 ## **상태바 색상 변경**
 
-```
+```dart
 SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 ```
 
 ![https://blog.kakaocdn.net/dn/Ego0p/btrYH1G8OfR/9EUb3UhlDa5QfWFN4RDrFK/img.png](https://blog.kakaocdn.net/dn/Ego0p/btrYH1G8OfR/9EUb3UhlDa5QfWFN4RDrFK/img.png)
 
-```
+```dart
 SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
 ```
 
